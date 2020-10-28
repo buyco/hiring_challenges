@@ -1,7 +1,9 @@
 version: '3'
+
 services:
+
   db:
-    image: postgres:11
+    image: postgres:12.4
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -9,6 +11,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     restart: on-failure
+
   boxes_creator_service:
     build: ./boxes_creator_service
     command: bundle exec rackup --host 0.0.0.0 -p 3000
@@ -30,6 +33,7 @@ services:
       DB_USER: user
       DB_PASS: password
       DB_HOST: db
+
   metal_counter_service:
     build: ./metal_counter_service
     command: bundle exec foreman start
@@ -51,8 +55,9 @@ services:
       DB_HOST: db
     volumes: 
       - ./metal_counter_service:/metal_counter_service
+
   rabbitmq:
-    image: rabbitmq:management-alpine
+    image: rabbitmq:3.8.7-management
     ports:
       - "5672:5672"
       - "15672:15672"

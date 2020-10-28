@@ -50,6 +50,22 @@ QA Challenge
 
 Analyse the two provided implementations of the API.
 
+Please look over the readme file of both implementations before starting.
+
+Setup
+-----
+
+We are assuming you are using a UNIX type system, Linux (preferred) or macOS (may run slowly).
+
+If you're trying to do this in Windows, we can't offer *any* support, sorry!
+
+Both implementations are to be run using ``docker-compose``, you may need to install these on your system:
+
+https://docs.docker.com/engine/install/
+
+https://pypi.org/project/docker-compose/
+
+
 Automated Tests
 ---------------
 

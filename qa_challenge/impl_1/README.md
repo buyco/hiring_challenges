@@ -1,15 +1,6 @@
 # Use case
 Run in `Docker` using `docker-compose`.
 
-https://docs.docker.com/engine/install/
-
-https://pypi.org/project/docker-compose/
-
-We are assuming you are using a UNIX type system, Linux (preferred) or macOS (may run slowly).
-
-If you're trying to do this in Windows, we can't offer *any* support, sorry!
-
-
 ## Docker use
 We can use the docker mecanism in order to use the developped system. You have to run the following command:
 ```bash
