@@ -1,0 +1,39 @@
+version: "3.8"
+   
+services:
+    db:
+        image: postgres:12.4
+        environment:
+        - POSTGRES_DB=buyco
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        volumes:
+            - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
+    rabbitmq:
+        image: rabbitmq:3.8.7-management
+        container_name: rabbitmq
+        ports:
+            - 5672:5672
+            - 15672:15672
+    worker:
+        build: .
+        command: celery -A processApp worker --loglevel=DEBUG
+        user: buyco
+        volumes:
+            - ./src:/code
+        depends_on:
+            - db
+            - rabbitmq
+    web:
+        build: .
+        command: "python3 server.py"
+        volumes:
+            - ./src:/code
+        user: buyco
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db
+            - rabbitmq
+            - worker
+    
