@@ -1,0 +1,61 @@
+version: '3'
+services:
+  db:
+    image: postgres:11
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    restart: on-failure
+  boxes_creator_service:
+    build: ./boxes_creator_service
+    command: bundle exec rackup --host 0.0.0.0 -p 3000
+    volumes:
+      - ./boxes_creator_service:/boxes_creator_service
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - rabbitmq
+    links: 
+      - db
+      - rabbitmq
+    restart: on-failure
+    environment:
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+      SINATRA_ENV: production
+      DB_NAME: buyco_api_production
+      DB_USER: user
+      DB_PASS: password
+      DB_HOST: db
+  metal_counter_service:
+    build: ./metal_counter_service
+    command: bundle exec foreman start
+    depends_on: 
+      - boxes_creator_service
+      - db
+      - rabbitmq
+    links:
+      - boxes_creator_service
+      - db
+      - rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+      SERVICE_ENV: production
+      DB_NAME: buyco_api_production
+      DB_USER: user
+      DB_PASS: password
+      DB_HOST: db
+    volumes: 
+      - ./metal_counter_service:/metal_counter_service
+  rabbitmq:
+    image: rabbitmq:management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    restart: on-failure
+volumes:
+  db:

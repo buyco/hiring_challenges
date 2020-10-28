@@ -1,0 +1,2 @@
+web:  bundle exec rackup config.ru -s puma
+worker: bundle exec sneakers work Processor --require worker.rb
