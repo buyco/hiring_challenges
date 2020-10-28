@@ -34,7 +34,7 @@ All information is mandatory.
 
 We need an API to receive all boxes and store them.
 
-In addition, each box of `type` being `metal` has its volume calculated.
+In addition, each box of ``type`` being ``metal`` has its volume calculated.
 
 
 Validation
@@ -50,11 +50,17 @@ QA Challenge
 
 Analyse the two provided implementations of the API.
 
+Automated Tests
+---------------
+
 Ensure that all functional requirements are met by connecting to the API and database as needed.
 
-These tests should be **automated**, please provide a script we can run.
+These tests must be **automated**, please provide a script we can run.
 
 You can use any programming language, and/or any open-source tool for this script.
+
+Report
+------
 
 Furthermore, we are also interested in how well each implementation handles common problems such as:
 
@@ -66,13 +72,13 @@ Furthermore, we are also interested in how well each implementation handles comm
 For these we are looking for a report, not an automated test.
 
 Simply list any potential problems you have found for each implementation.
-Reports must be in plain text file (`.txt`, `.md`, `.rst`, ...)
+Reports must be in plain text file (``.txt``, ``.md``, ``.rst``, ...)
 
 This can be achieved by any means, such as:
 
-* testing on the API,
-* examining the source code,
-* running through automated tools,
+* testing on the API with ``Postman``, ``Swagger UI``, or other tools for API/ReST development
+* examining the source code
+* using automated testing tools such as ``OWASP Benchmark``
 * ...
 
 Please describe briefly, in English, the steps you took to analyse the code.
