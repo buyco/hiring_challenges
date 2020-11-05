@@ -4,36 +4,43 @@ services:
     db:
         image: postgres:12.4
         environment:
-        - POSTGRES_DB=buyco
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=postgres
+          - POSTGRES_DB=buyco
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
         volumes:
-            - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
+          - ./initdb.sh:/docker-entrypoint-initdb.d/initdb.sh
+        restart: on-failure
+        ports:
+            - "5432:5432"
+
     rabbitmq:
         image: rabbitmq:3.8.7-management
         container_name: rabbitmq
+        restart: on-failure
         ports:
-            - 5672:5672
-            - 15672:15672
+          - "5672:5672"
+          - "15672:15672"
+
     worker:
         build: .
         command: celery -A processApp worker --loglevel=DEBUG
         user: buyco
         volumes:
-            - ./src:/code
+          - ./src:/code
         depends_on:
-            - db
-            - rabbitmq
+          - db
+          - rabbitmq
+
     web:
         build: .
         command: "python3 server.py"
         volumes:
-            - ./src:/code
+          - ./src:/code
         user: buyco
         ports:
-            - "8000:8000"
+          - "8000:8000"
         depends_on:
-            - db
-            - rabbitmq
-            - worker
+          - db
+          - rabbitmq
+          - worker
     

@@ -11,6 +11,8 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
     restart: on-failure
+    ports:
+      - "5432:5432"
 
   boxes_creator_service:
     build: ./boxes_creator_service
