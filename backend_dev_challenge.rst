@@ -124,9 +124,9 @@ We now need to scale our product.
 
 Split the recording and processing functionalities into micro-services.
 
-The API service will record all the incoming boxes in the database.
+The API service will record all the incoming boxes in a database.
 
-Another service will calculate the volume and record it in the database.
+Another service will calculate the volume and record it in a database.
 
 The two services must not communicate using `ReST` nor `SOAP`.
 
