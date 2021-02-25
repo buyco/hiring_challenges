@@ -84,7 +84,7 @@ You must use the latest version of one of the following programming languages:
 * Ruby
 * Go
 
-Storage must be done in a PostgreSQL database.
+Storage must be done in a `PostgreSQL` database.
 
 The use of "do everything for you" type frameworks (Django, Rails, etc) is not allowed.
 
@@ -131,14 +131,14 @@ Another service will calculate the volume and record it in a database.
 
 The two services must not communicate using `ReST` nor `SOAP`.
 
-You may use a 3rd party application for service communication (RabbitMQ, Redis, etc), **OR** any other protocol (gRPC, Captainn Proto, etc).
+You may use a 3rd party application for service communication (`RabbitMQ`, `Redis`, etc), **OR** any other protocol (`gRPC`, `Cap'n Proto`, etc).
 
 Validation
 ----------
 Must be functionally identical to level 2.
 
 
-Level 4 (ops bonus)
-===================
+Ops Bonus (all levels)
+======================
 
-Provide a fully working project with a docker-compose file that runs everything automatically.
+Provide a fully working project with a `docker-compose` file that runs everything automatically.
