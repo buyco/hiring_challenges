@@ -107,7 +107,8 @@ We need to do some processing on the boxes.
 Modify the logic so that we store the volume of each metal box (based on what is sent through the API).
 The volume must be stored in a separate table from the main data.
 
-Writing the data and processing the data must be done in parallel / concurrently / asynchronously, using the most recent recommended method for the chosen language.
+Writing the data and processing the data must be done in parallel, or concurrently, or asynchronously.
+This using the most recent recommended method for the chosen language.
 
 Validation
 ----------
