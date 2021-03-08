@@ -8,9 +8,11 @@ Please read the entire file before starting to code.
 The application **must** use TypeScript and React. The only allowed libraries are:
 `create-react-app`, `lodash`, `ramda`, `fetch`, `axios`, `styled-components`, `emotion`
 
-Coding style, UI and UX will be studied and evaluted.
+Coding style, GIT history, UI and UX will be studied and evaluted.
 
 Clean code counts! We encourage you to use `prettier` and `eslint`.
+
+Your code should be hosted to a **private** Github repo shared with https://github.com/Poirette and https://github.com/adesurirey
 
 
 ## Step 1
@@ -29,11 +31,12 @@ Abstract away the AJAX logic into a reusable *hook* called `useFetch`.
 The next step is to be able to select and remove one or more users from the list.
 
 Since `json-server` simulates a ReST API, several requests must be made to remove several users (one request per user).
-However this an implementation detail, for them it must appear as an atomic operation.
+However this an implementation detail, for the user it must appear as an atomic operation.
 
 ### Constraint
-Your AJAX request must be abstracted into a reusable *hook* called `useCommand`.
+Abstract away the AJAX logic into a reusable *hook* called `useCommand`.
 
 
 ## Bonus step 🎖
 The `useFetch` *hook* allows putting several requests in cache.
+
