@@ -6,13 +6,13 @@ The goal of this test is to display a list of users and to be able to delete peo
 Please read the entire file before starting to code.
 
 The application **must** use TypeScript and React. The only allowed libraries are:
-`create-react-app`, `lodash`, `ramda`, `fetch`, `axios`, `styled-components`, `emotion`
+`create-react-app`, `fetch`, `axios`, `styled-components`, `emotion`,  `prettier` and `eslint`
 
 Coding style, GIT history, UI and UX will be studied and evaluted.
 
 Clean code counts! We encourage you to use `prettier` and `eslint`.
 
-Your code should be hosted to a **private** Github repo shared with https://github.com/Poirette and https://github.com/adesurirey
+Your code should be hosted to a **private** Github repo shared with https://github.com/benjaminbuyco and https://github.com/adesurirey
 
 
 ## Step 1
@@ -23,9 +23,6 @@ Use `json-server` (https://github.com/typicode/json-server) to load the API in-m
 
 Which data are displayed, as well as the design of the application are up to you.
 
-### Constraint
-Abstract away the AJAX logic into a reusable *hook* called `useFetch`.
-
 
 ## Step 2
 The next step is to be able to select and remove one or more users from the list.
@@ -33,10 +30,7 @@ The next step is to be able to select and remove one or more users from the list
 Since `json-server` simulates a ReST API, several requests must be made to remove several users (one request per user).
 However this an implementation detail, for the user it must appear as an atomic operation.
 
-### Constraint
-Abstract away the AJAX logic into a reusable *hook* called `useCommand`.
-
 
 ## Bonus step 🎖
-The `useFetch` *hook* allows putting several requests in cache.
+Implement a caching strategy for all your API requests.
 
