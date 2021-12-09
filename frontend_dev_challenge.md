@@ -12,8 +12,6 @@ Coding style, GIT history, UI and UX will be studied and evaluted.
 
 Clean code counts! We encourage you to use `prettier` and `eslint`.
 
-Your code should be hosted to a **private** Github repo shared with https://github.com/benjaminbuyco and https://github.com/adesurirey
-
 
 ## Step 1
 Display a list of users using the JSON source file found here:
