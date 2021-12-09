@@ -1,4 +1,4 @@
-# Front-End Developper Challenge
+# Front-End Developer Challenge
 
 ## Overview
 The goal of this test is to display a list of users and to be able to delete people from the list.
