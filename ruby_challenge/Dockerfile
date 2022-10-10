@@ -7,5 +7,3 @@ RUN mkdir /ruby_challenge
 WORKDIR /ruby_challenge
 
 RUN bundle config build.nokogiri --use-system-libraries
-
-ENTRYPOINT ["/ruby_challenge/docker-entrypoint.sh"]

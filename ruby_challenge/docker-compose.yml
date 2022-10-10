@@ -14,6 +14,7 @@ x-app: &default-app
   stop_grace_period: "3s"
   stdin_open: true
   tty: true
+  entrypoint: /ruby_challenge/docker-entrypoint.sh
   volumes:
     - .:/ruby_challenge
     - ruby_challenge_bundler_gems:/usr/local/bundle
