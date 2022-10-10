@@ -1,0 +1,2 @@
+CREATE USER ruby_challenge_database_user;
+ALTER USER ruby_challenge_database_user WITH SUPERUSER;

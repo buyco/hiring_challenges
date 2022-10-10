@@ -1,0 +1,58 @@
+version: '3.4'
+
+x-app: &default-app
+  build:
+    context: .
+    args:
+      - "RAILS_ENV=${RAILS_ENV:-development}"
+  depends_on:
+    - ruby_challenge-redis
+    - ruby_challenge-database
+  env_file:
+    - .env
+  restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+  stop_grace_period: "3s"
+  stdin_open: true
+  tty: true
+  volumes:
+    - .:/ruby_challenge_api
+    - ruby_challenge_bundler_gems:/usr/local/bundle
+
+services:
+  ruby_challenge-database:
+    container_name: ruby_challenge-database
+    image: postgres:12.1
+    env_file:
+      - .env
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: "3s"
+    volumes:
+      - ruby_challenge_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  
+  ruby_challenge-redis:
+    container_name: ruby_challenge-redis
+    image: redis:6.2.6-bullseye
+    env_file:
+      - .env
+    restart: "${DOCKER_RESTART_POLICY:-unless-stopped}"
+    stop_grace_period: "3s"
+    volumes:
+      - "ruby_challenge_redis:/data"
+
+  ruby_challenge-api:
+    <<: *default-app
+    container_name: ruby_challenge_api
+    command: api
+    ports:
+      - "3000:3000"
+
+  ruby_challenge-worker:
+    <<: *default-app
+    container_name: ruby_challenge-worker
+    command: worker
+
+volumes:
+  ruby_challenge_data:
+  ruby_challenge_bundler_gems:
+  ruby_challenge_redis:

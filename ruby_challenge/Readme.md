@@ -1,6 +1,10 @@
 # Context
 We are a shipping container booking company, our customers send us containers of different weight/type (example: REEFER20, DRY40). We need to save the containers received via the api as well as any changes to them. When the status of the containers changes to `:ready` it indicates that the container can be loaded on the vessel. Then, asynchronously, we calculate the total weight on the vessel being loaded and check if the loading limit has not been reached, if not, then the container can be loaded and its status changes to `:stuffed` In this case, we send an email to the customer, to inform him that his container has been loaded. If there are no more vessels available at the departure of the day, then we inform the customer that his container will be loaded the next day.
 
+# Steps
+## Build a REST api for containers
+## Stuff containers on vessels
+
 # What is provided in the project
 - Rails api-only pre-configured (auth, spec...)
 - User and Vessel models
