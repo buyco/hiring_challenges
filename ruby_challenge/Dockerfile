@@ -6,14 +6,6 @@ RUN mkdir /ruby_challenge
 
 WORKDIR /ruby_challenge
 
-COPY Gemfile /ruby_challenge/Gemfile
-
-COPY Gemfile.lock /ruby_challenge/Gemfile.lock
-
 RUN bundle config build.nokogiri --use-system-libraries
-
-RUN bundle check || bundle install
-
-COPY . /ruby_challenge
 
 ENTRYPOINT ["/ruby_challenge/docker-entrypoint.sh"]

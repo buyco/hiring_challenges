@@ -15,7 +15,7 @@ x-app: &default-app
   stdin_open: true
   tty: true
   volumes:
-    - .:/ruby_challenge_api
+    - .:/ruby_challenge
     - ruby_challenge_bundler_gems:/usr/local/bundle
 
 services:
