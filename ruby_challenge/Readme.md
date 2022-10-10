@@ -56,3 +56,15 @@ Vessel
 #   "updated_at"=>Mon, 10 Oct 2022 13:02:20.383611000 UTC +00:00
 # }
 ```
+
+# Setup
+
+```shell
+git clone git@github.com:buyco/hiring_challenges.git
+cd hiring_challenges/ruby_challenge
+make setup_and_start # or docker compose up -d --build && docker compose logs -f --tail=100
+
+# Happy challenge!
+```
+**Server on**
+http://localhost:3000/health
