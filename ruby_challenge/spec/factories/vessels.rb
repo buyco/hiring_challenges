@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: vessels
@@ -14,7 +16,7 @@ FactoryBot.define do
   factory :vessel do
     name { Faker::Company.name }
     kg_weight_limit { 12_000_000 }
-    departure { Date.today.to_time.change(hour: 16) }
+    departure { Time.zone.today.change(hour: 16) }
     full { false }
 
     trait :full do

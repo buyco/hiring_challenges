@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Containers
   STATES = %w[pending ready stuffed].freeze
   TYPES = %w[DRY REEFER OPEN_TOP].freeze

@@ -9,9 +9,12 @@
 #
 # See https://docs.rubocop.org/rubocop/configuration
 
+require: rubocop-rails
+
 AllCops:
+  NewCops: enable
   Exclude:
-    - docker/
+    - db/schema.rb
 
 Style/Documentation:
   Enabled: false
@@ -21,6 +24,10 @@ Style/Encoding:
 
 Layout/LineLength:
   Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/*
 
 Metrics/MethodLength:
   Max: 15
