@@ -7,4 +7,7 @@ start:
 clear:
 	docker compose down && docker volume prune
 
+console:
+	docker exec -ti ruby_challenge_api bash
+
 setup_and_start: build start
