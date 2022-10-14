@@ -34,25 +34,25 @@ StuffingMailer.will_be_stuffed_tomorrow(container)  # To notify user for tomorro
 ```ruby
 User
 # {
-#   "id"=>1,                                                                           
-#   "email"=>"test1234@gmail.com",                                                     
+#   "id"=>1,
+#   "email"=>"test1234@gmail.com",
 #   "encrypted_password"=>"$2a$12$TZPHyGPf/kz2fSwByNE0XufK6p7mH7EYR9LIoqHGvKSiV/GRPjqZu",
-#   "reset_password_token"=>nil,                                                       
-#   "reset_password_sent_at"=>nil,                                                     
-#   "remember_created_at"=>nil,                                                        
-#   "created_at"=>Mon, 10 Oct 2022 13:02:19.350018000 UTC +00:00,                      
-#   "updated_at"=>Mon, 10 Oct 2022 13:02:19.350018000 UTC +00:00,                      
+#   "reset_password_token"=>nil,
+#   "reset_password_sent_at"=>nil,
+#   "remember_created_at"=>nil,
+#   "created_at"=>Mon, 10 Oct 2022 13:02:19.350018000 UTC +00:00,
+#   "updated_at"=>Mon, 10 Oct 2022 13:02:19.350018000 UTC +00:00,
 #   "jti"=>nil
 # }
 
 Vessel
 # {
-#   "id"=>1,                                                            
-#   "name"=>"Lynch, Quigley and Heaney",                                
-#   "kg_weight_limit"=>12500000,                                        
-#   "full"=>false,                                                      
-#   "departure"=>Mon, 10 Oct 2022 16:00:00.000000000 UTC +00:00,        
-#   "created_at"=>Mon, 10 Oct 2022 13:02:20.383611000 UTC +00:00,       
+#   "id"=>1,
+#   "name"=>"Lynch, Quigley and Heaney",
+#   "kg_weight_limit"=>12500000,
+#   "full"=>false,
+#   "departure"=>Mon, 10 Oct 2022 16:00:00.000000000 UTC +00:00,
+#   "created_at"=>Mon, 10 Oct 2022 13:02:20.383611000 UTC +00:00,
 #   "updated_at"=>Mon, 10 Oct 2022 13:02:20.383611000 UTC +00:00
 # }
 ```
@@ -63,6 +63,7 @@ Vessel
 git clone git@github.com:buyco/hiring_challenges.git
 cd hiring_challenges/ruby_challenge
 make setup_and_start # or docker compose up -d --build && docker compose logs -f --tail=100
+make console
 
 # Happy challenge!
 ```
