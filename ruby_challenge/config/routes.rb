@@ -12,5 +12,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     get :health, to: 'application#health'
+
+    resources :containers, only: %i[create update show]
   end
 end

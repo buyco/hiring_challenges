@@ -13,4 +13,5 @@
 #  updated_at      :datetime         not null
 #
 class Vessel < ApplicationRecord
+  has_many :containers
 end
