@@ -1,14 +1,11 @@
 # Context
 We are a shipping container booking company, our customers send us containers of different weight/type (example: REEFER20, DRY40). We need to save the containers received via the api as well as any changes to them. When the status of the containers changes to `:ready` it indicates that the container can be loaded on the vessel. Then, asynchronously, we calculate the total weight on the vessel being loaded and check if the loading limit has not been reached, if not, then the container can be loaded and its status changes to `:stuffed` In this case, we send an email to the customer, to inform him that his container has been loaded. If there are no more vessels available at the departure of the day, then we inform the customer that his container will be loaded the next day.
 
-## First step
-Create the resource and apis needed to process the containers. You have free rein on the modeling and implementation. All the information you need is listed in this Readme and present in the project. Surprise us!
+## 1st - Improve the ContainersController
+The controller has been defined according to the most basic convention of rails. How could you improve this one?
 
-## Second step (optional)
-Process asynchronously, containers that go from `pending` to `ready` state
-
-## Third step (optional)
-We have a special validation concerning the container numbers, they must be 10 characters long and must be a succession of uppercase letters and odd numbers
+## 2nd - Process asynchronously (optional)
+Handle containers changes that go from `pending` to `ready` state
 
 # What is provided in the project
 - Rails api-only pre-configured (auth, spec...)
@@ -69,3 +66,5 @@ make console
 ```
 **Server on**
 http://localhost:3000/health
+
+
