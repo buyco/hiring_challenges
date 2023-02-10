@@ -11,7 +11,7 @@ Handle containers changes that go from `pending` to `ready` state
 - Rails api-only pre-configured (auth, spec...)
 - User and Vessel models
 
-![database](resources/database.png)
+![database](resources/tables.jpg)
 
 ## Constants
 ```ruby
@@ -29,29 +29,47 @@ StuffingMailer.will_be_stuffed_tomorrow(container)  # To notify user for tomorro
 
 ## Models
 ```ruby
-User
-# {
-#   "id"=>1,
-#   "email"=>"test1234@gmail.com",
-#   "encrypted_password"=>"$2a$12$TZPHyGPf/kz2fSwByNE0XufK6p7mH7EYR9LIoqHGvKSiV/GRPjqZu",
-#   "reset_password_token"=>nil,
-#   "reset_password_sent_at"=>nil,
-#   "remember_created_at"=>nil,
-#   "created_at"=>Mon, 10 Oct 2022 13:02:19.350018000 UTC +00:00,
-#   "updated_at"=>Mon, 10 Oct 2022 13:02:19.350018000 UTC +00:00,
-#   "jti"=>nil
-# }
+# User
+User.count
+1
 
-Vessel
-# {
-#   "id"=>1,
-#   "name"=>"Lynch, Quigley and Heaney",
-#   "kg_weight_limit"=>12500000,
-#   "full"=>false,
-#   "departure"=>Mon, 10 Oct 2022 16:00:00.000000000 UTC +00:00,
-#   "created_at"=>Mon, 10 Oct 2022 13:02:20.383611000 UTC +00:00,
-#   "updated_at"=>Mon, 10 Oct 2022 13:02:20.383611000 UTC +00:00
-# }
+User.last
+<User id: 1, email: "test1234@gmail.com", created_at: "2022-10-11 15:59:40.891978000 +0000", updated_at: "2022-10-11 15:59:40.891978000 +0000", jti: nil>
+
+# Vessel
+Vessel.count
+3
+
+Vessel.all
+[
+  <Vessel:0x00007fbf24e5ab10                                      
+    id: 1,                                                          
+    name: "Dickinson, Adams and Keeling",                           
+    kg_weight_limit: 12500000,                                      
+    full: false,                                                    
+    departure: Tue, 11 Oct 2022 16:00:00.000000000 UTC +00:00,      
+    created_at: Tue, 11 Oct 2022 15:59:42.155205000 UTC +00:00,     
+    updated_at: Tue, 11 Oct 2022 15:59:42.155205000 UTC +00:00
+  >,    
+  <Vessel:0x00007fbf24f9bc18                                      
+    id: 2,                                                          
+    name: "Tillman, Stehr and Lesch",                               
+    kg_weight_limit: 20500000,                                      
+    full: false,                                                    
+    departure: Wed, 12 Oct 2022 16:00:00.000000000 UTC +00:00,
+    created_at: Tue, 11 Oct 2022 15:59:42.166003000 UTC +00:00,
+    updated_at: Tue, 11 Oct 2022 15:59:42.166003000 UTC +00:00
+  >,
+  <Vessel:0x00007fbf24f9ba38
+    id: 3,
+    name: "Hermiston, Medhurst and Roberts",
+    kg_weight_limit: 38000000,
+    full: false,
+    departure: Wed, 12 Oct 2022 18:00:00.000000000 UTC +00:00,
+    created_at: Tue, 11 Oct 2022 15:59:42.177602000 UTC +00:00,
+    updated_at: Tue, 11 Oct 2022 15:59:42.177602000 UTC +00:00
+  >
+]
 ```
 
 # Setup
